@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+//import hook
 import { useFetch } from '../hook/useFetch';
 
 export default function Home() {
   const { data, setData } = useFetch('http://localhost:3000/workouts')
-
+  
+  //delete the tab
   const deleteTab = (myId) => {
     const url = 'http://localhost:3000/workouts/' + myId
     const newState = data.filter((item) =>{
@@ -16,7 +19,8 @@ export default function Home() {
       setData(newState)
     )
   }
-
+  
+  //show different template if there are no tabs
   if(data && data.length === 0){
     return (
       <div className='relative flex flex-col pb-20 pt-5 px-10'>

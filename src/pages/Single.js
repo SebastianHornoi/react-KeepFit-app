@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+
+//import hook
 import { useFetch } from '../hook/useFetch';
 
 export default function Single() {
@@ -9,6 +11,7 @@ export default function Single() {
   const [newExercise, setNewExercise] = useState('')
   const navigate = useNavigate()
 
+  //add a new exercise with a put request
   const addNewExercise = (workout) => {
     fetch(url,{
       method: "PUT",
@@ -26,6 +29,7 @@ export default function Single() {
     )
   }
 
+  //delete the tab with a delete request
   const deleteTab = () =>{
     fetch(url,{
       method: "DELETE"

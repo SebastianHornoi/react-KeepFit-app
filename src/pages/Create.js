@@ -1,7 +1,9 @@
 import React from 'react';
 import { useState } from 'react'
-import { useFetch } from '../hook/useFetch';
 import { useNavigate } from 'react-router-dom';
+
+//import hook
+import { useFetch } from '../hook/useFetch';
 
 export default function Create() {
 
@@ -17,6 +19,7 @@ export default function Create() {
   const { data, postData } = useFetch('http://localhost:3000/workouts', 'POST')
   const navigate = useNavigate()
 
+  //create a new tab on submit with a post request, then move to home
   const handleSubmit = (e) => {
     e.preventDefault()
     postData({
@@ -33,6 +36,7 @@ export default function Create() {
     navigate('/')
   }
 
+  //insert a new muscle group
   const handleMuscles = (e) => {
     e.preventDefault()
     const muscle = newMuscleGroup.trim()
@@ -43,7 +47,7 @@ export default function Create() {
     setNewMuscleGroup('')
   }
 
-
+  //insert a new exercise
   const handleExercises = (e) => {
     e.preventDefault()
     const ex = newExercise.trim()

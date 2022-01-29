@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
+
+//import hook
 import { useFetch } from '../hook/useFetch';
 
 export default function Search() {
@@ -10,6 +12,7 @@ export default function Search() {
   const url = 'http://localhost:3000/workouts?q=' + query
   const { error, data } = useFetch(url)
   
+  //show different template if there are no tabs for your search
   if(data && data.length === 0){
     return (
       <div className='w-full flex-col flex px-5 pt-5 pb-28'>
